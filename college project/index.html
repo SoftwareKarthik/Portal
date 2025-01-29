@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Dashboard Sidebar */
+        .dashboard-sidebar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .dashboard-sidebar img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        /* Dashboard Profile */
+        .dashboard-profile {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: none; /* Hidden by default */
+            max-width: 250px;
+            text-align: center;
+        }
+
+        .dashboard-profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Top Right Buttons */
+        .top-right-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px; /* Space between the buttons */
+        }
+
+        .top-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #ffffff;
+            transition: background-color 0.3s;
+            text-decoration: none; /* Remove underline from links */
+            text-align: center;
+        }
+
+        .top-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Form Section */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px; /* Adds spacing between input fields */
+        }
+
+        .form-label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Buttons */
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end; /* Moves buttons to the right */
+            gap: 10px; /* Adds space between buttons */
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* OR Text */
+        .or-text {
+            margin: 20px 0;
+            color: #555;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Google Login Section */
+        .google-signin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .google-logo {
+            width: 80px; /* Adjusted size */
+            margin-bottom: 10px;
+        }
+
+        .google-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #db4437;
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        .google-btn:hover {
+            background-color: #c23321;
+        }
+
+        /* Existing User Section */
+        .existing-user {
+            font-size: 16px;
+            color: #555;
+            margin-top: 20px; /* Spacing between form and the message */
+        }
+
+        .existing-user a {
+            color: #007BFF; /* Link color */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold;
+        }
+
+        .existing-user a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+         /* Dashboard Sidebar */
+         .dashboard-sidebar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* Dashboard Profile */
+        .dashboard-profile {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: none; /* Hidden by default */
+            max-width: 250px;
+            text-align: center;
+            transition: opacity 0.3s ease; /* Faster close effect */
+        }
+
+        .dashboard-profile img {
+            width: 100px; /* Increased size */
+            height: 100px; /* Increased size */
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #d9534f; /* Red color for logout */
+            color: white;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #c9302c; /* Darker red on hover */
+        }
+
+        /* Message After Logout - Fixed Position */
+        .logout-message {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            background-color: #dff0d8; /* Light green */
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+            z-index: 1000; /* Ensure it appears above other elements */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <!-- Dashboard Sidebar -->
+     <div class="dashboard-sidebar" onclick="toggleProfile()">
+        <span>Dashboard</span>
+    </div>
+
+    <!-- Dashboard Profile -->
+    <div class="dashboard-profile" id="profile">
+        <img src="prabhas.jpg" alt="Profile Picture">
+        <p><strong>Username:</strong> JohnDoe</p>
+        <p><strong>Email:</strong> johndoe@example.com</p>
+        <!-- Logout Button -->
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Logout Success Message -->
+    <div class="logout-message" id="logoutMessage">
+        You logged out successfully!
+    </div>
+
+    <!-- Top Right Buttons -->
+    <div class="top-right-buttons">
+        <a href="signup.html" class="top-btn">Sign Up</a>
+    </div>
+
+    <!-- Login Form Container -->
+    <div class="container">
+        <div class="image-container">
+            <img src="aitam logo.jpg" alt="College" class="college-image">
+        </div>
+        <h2>Student Details</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="input-field" required>
+            </div>
+            <div class="button-container">
+                <a href="login.html" class="btn">Login</a>
+            </div>
+        </div>
+        <div class="or-text">OR</div>
+        <!-- Existing User Section -->
+        <p class="existing-user">
+            Already have an account?
+        </p>
+        <div class="google-signin">
+            <a href="signin.html">
+                <img src="google logo.jpg" alt="Google" class="google-logo">
+                <button class="google-btn">Sign In with Google</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Toggle visibility of the profile with a faster closing effect
+        function toggleProfile() {
+            var profile = document.getElementById('profile');
+            if (profile.style.display === 'block') {
+                profile.style.display = 'none'; // Hide the profile
+            } else {
+                profile.style.display = 'block'; // Show the profile
+            }
+        }
+
+        // Logout function
+        function logout() {
+            var profile = document.getElementById('profile');
+            var logoutMessage = document.getElementById('logoutMessage');
+            
+            // Hide the profile and show the logout success message
+            profile.style.display = 'none';
+            logoutMessage.style.display = 'block';
+
+            // Optionally, hide the message after a few seconds
+            setTimeout(function() {
+                logoutMessage.style.display = 'none';
+            }, 3000); // Hides message after 3 seconds
+        }
+    </script>
+</body>
+</html>

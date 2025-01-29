@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Form Section */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px; /* Adds spacing between input fields */
+        }
+
+        .form-label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Buttons */
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end; /* Moves buttons to the right */
+            gap: 10px; /* Adds space between buttons */
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Link to Sign In */
+        .link-container {
+            margin-top: 20px;
+        }
+
+        .link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Registration Form Container -->
+    <div class="container">
+        <h2>Registration Form</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="rollnumber" class="form-label">Roll Number</label>
+                <input type="text" id="rollnumber" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="newpassword" class="form-label">New Password</label>
+                <input type="password" id="newpassword" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmpassword" class="form-label">Confirm Password</label>
+                <input type="password" id="confirmpassword" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="otp" class="form-label">OTP Verification</label>
+                <input type="text" id="otp" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <input type="text" id="mobile" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="guardianname" class="form-label">Parent/Guardian Name</label>
+                <input type="text" id="guardianname" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="guardianmobile" class="form-label">Parent/Guardian Mobile Number</label>
+                <input type="text" id="guardianmobile" class="input-field" required>
+            </div>
+            <div class="form-group">
+                <label for="address" class="form-label">Address</label>
+                <textarea id="address" class="input-field" rows="3" required></textarea>
+            </div>
+            <div class="button-container">
+                <a href="register.html" class="btn">Register</a>
+            </div>
+            
+        </div>
+        <div class="link-container">
+            <p>Already have an account? <a href="signin.html" class="link">Sign In</a></p>
+        </div>
+    </div>
+</body>
+</html>
